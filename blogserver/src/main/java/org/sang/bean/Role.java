@@ -1,7 +1,9 @@
 package org.sang.bean;
 
 /**
- * Created by sang on 2017/12/17.
+ * 角色DO
+ *
+ * @author FXC
  */
 public class Role {
     private Long id;
@@ -11,7 +13,6 @@ public class Role {
     }
 
     public Long getId() {
-
         return id;
     }
 
@@ -28,7 +29,6 @@ public class Role {
     }
 
     public Role(Long id, String name) {
-
         this.id = id;
         this.name = name;
     }

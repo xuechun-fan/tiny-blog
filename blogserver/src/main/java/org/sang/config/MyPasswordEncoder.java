@@ -5,13 +5,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.DigestUtils;
 
 /**
- * @作者 江南一点雨
- * @微信公众号 江南一点雨
- * @网站 http://www.itboyhub.com
- * @国际站 http://www.javaboy.org
- * @微信 a_java_boy
- * @GitHub https://github.com/lenve
- * @Gitee https://gitee.com/lenve
+ * 自定义密码编码器
+ *
+ * @author FXC
  */
 @Component
 public class MyPasswordEncoder implements PasswordEncoder {
@@ -22,6 +18,7 @@ public class MyPasswordEncoder implements PasswordEncoder {
 
     @Override
     public boolean matches(CharSequence rawPassword, String encodedPassword) {
-        return encodedPassword.equals(DigestUtils.md5DigestAsHex(rawPassword.toString().getBytes()));
+        return encodedPassword
+                .equals(DigestUtils.md5DigestAsHex(rawPassword.toString().getBytes()));
     }
 }

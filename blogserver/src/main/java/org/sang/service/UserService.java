@@ -44,10 +44,11 @@ public class UserService implements UserDetailsService {
     }
 
     /**
+     * 1 表示用户名重复
+     * 2 表示失败
+     *
      * @param user
      * @return 0表示成功
-     * 1表示用户名重复
-     * 2表示失败
      */
     public int reg(User user) {
         User loadUserByUsername = userMapper.loadUserByUsername(user.getUsername());

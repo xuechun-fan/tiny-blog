@@ -15,15 +15,28 @@ import java.util.Map;
 
 /**
  * 超级管理员专属Controller
+ *
+ * @author FXC
  */
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
-    @Autowired
-    ArticleService articleService;
 
+    /** 文章服务 */
+    @Autowired
+    private ArticleService articleService;
+
+    /**
+     * 通过文章状态获取文章
+     *
+     * @param page
+     * @param count
+     * @param keywords
+     * @return
+     */
     @RequestMapping(value = "/article/all", method = RequestMethod.GET)
-    public Map<String, Object> getArticleByStateByAdmin(@RequestParam(value = "page", defaultValue = "1") Integer page, @RequestParam(value = "count", defaultValue = "6") Integer count, String keywords) {
+    public Map<String, Object> getArticleByStateByAdmin(@RequestParam(value = "page",
+            defaultValue = "1") Integer page, @RequestParam(value = "count", defaultValue = "6") Integer count, String keywords) {
         List<Article> articles = articleService.getArticleByState(-2, page, count, keywords);
         Map<String, Object> map = new HashMap<>();
         map.put("articles", articles);
